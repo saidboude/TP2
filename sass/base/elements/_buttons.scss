@@ -1,0 +1,23 @@
+.bouton,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	border: 2px solid;
+	border-color: $color__border-button;
+	border-radius: 3px;
+	background: $color__background-button;
+	color: rgba(27, 177, 65, 0.8);
+	line-height: 1;
+	padding: 0.6em 1em 0.4em;
+	text-decoration: aquamarine;
+
+	&:hover {
+		border-color: $color__border-button-hover;
+	}
+
+	&:active,
+	&:focus {
+		border-color: $color__border-button-focus;
+	}
+}
