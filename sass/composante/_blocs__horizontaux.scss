@@ -1,0 +1,22 @@
+.blocs__horizontaux{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 100px;
+
+}
+.blocs__horizontaux article{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 300px;
+    border: 5px solid #aaa;
+    width: 50%;
+    margin-block-end: 300px;
+    @media screen and (min-width:700px){
+        width: 25%;
+        overflow-x: hidden;
+    }
+}

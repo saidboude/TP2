@@ -18,9 +18,7 @@
     <section class="site">
         <header class="site__header">
             <section class="site__branding">
-                    <div>
-                    <img src="2022-31W/wp-admin/images/logo-said.jpg" alt="logo">
-                    </div>
+                    
                 <h1> 
                     <a href="<?=esc_url(home_url('/'))?>"><?=bloginfo('name');?></a> 
                 </h1>
@@ -39,11 +37,14 @@
             </nav>
         </header>
         <section class="site__sidebar">
-            <h3>Menu cours</h3>
+            <input type="checkbox" name="chk-burger" id="chk-burger">
+            <label for="chk-burger" id="burger">
+            <img src="https://s2.svgbox.net/hero-outline.svg?ic=menu&color=000" width="32" height="32">
+            </label>
             <?php wp_nav_menu(array(
-                'menu' => '',
+                'menu' => ' menu sidebar',
                 'container' => 'nav',
                 'container_class' => 'menu__sidebar',
-                'menu_class' => 'menu__sidebar__ul',
-            )) ?>
+                'menu_class' => 'menu__sidebar__ul'
+            )); ?>
         </section>

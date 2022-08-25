@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*! 
-Theme Name: 31W-exercice-1 
+Theme Name: TP2
 Author: said boudehane
 Author URI: http://github.com/saidboude
 Description: Thème de base pour le cours de 31W
@@ -475,6 +475,7 @@ table {
 --------------------------------------------- */
 a {
   color: #4169e1;
+  font-family: "Roboto", BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
 a:visited {
@@ -582,10 +583,59 @@ textarea {
 /*--------------------------------------------------------------
 # composante
 --------------------------------------------------------------*/
+#burger {
+  display: block;
+  position: absolute;
+  top: 55px;
+  left: 0;
+  z-index: 100;
+  transform: rotate(0deg);
+  transition: transform .5s;
+}
+
+@media screen and (min-width: 700px) {
+  #burger {
+    display: none;
+  }
+}
+
+.menu__sidebar {
+  position: absolute;
+  padding-top: 75px;
+  width: 100vw;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  background-color: #6a7de4;
+  transform: translateX(-100vw);
+  transition: transform .5s;
+}
+
+@media screen and (min-width: 700px) {
+  .menu__sidebar {
+    position: static;
+    width: 100%;
+    transform: translateX(0vw);
+  }
+}
+
+#chk-burger {
+  display: none;
+}
+
+#chk-burger:checked ~ .menu__sidebar {
+  transform: translateX(0);
+}
+
+#chk-burger:checked ~ #burger {
+  transform: rotate(90deg);
+}
+
 .menu__sidebar__ul {
+  background-color: #98e5e5;
   list-style: none;
   margin: 0;
-  padding: 1rem 0;
+  padding: .4rem 0;
 }
 
 .menu__sidebar__ul .menu-item {
@@ -601,6 +651,59 @@ textarea {
   background-color: #d1d9e8;
 }
 
+/**
+* Block menu dela page d'accueil
+*/
+.menu-accueil-container {
+  margin-top: 50px;
+}
+
+.menu-accueil-container .menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.menu-accueil-container .menu .menu-item {
+  list-style-type: none;
+  margin: 50px;
+  padding: auto;
+  border: 3px solid #aaa;
+  width: 22%;
+  padding: 1.5rem;
+  background-color: aqua;
+}
+
+.menu-accueil-container .menu .menu-item a {
+  text-decoration: none;
+}
+
+.blocs__horizontaux {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 100px;
+}
+
+.blocs__horizontaux article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 300px;
+  border: 5px solid #aaa;
+  width: 50%;
+  margin-block-end: 300px;
+}
+
+@media screen and (min-width: 700px) {
+  .blocs__horizontaux article {
+    width: 25%;
+    overflow-x: hidden;
+  }
+}
+
 /*--------------------------------------------------------------
 # Layout
 --------------------------------------------------------------*/
@@ -611,7 +714,10 @@ http://css-tricks.com/snippets/css/complete-guide-grid/
 .site {
   display: grid;
   grid-template-columns: auto;
-  grid-template-areas: "header header" "sidebar sidebar" "main main" "footer footer";
+  grid-template-areas: "header header"
+ "sidebar sidebar"
+ "main main"
+ "footer footer";
 }
 
 .site__header, .site__sidebar, .site__main, .site__footer {
@@ -643,7 +749,9 @@ http://css-tricks.com/snippets/css/complete-guide-grid/
 @media screen and (min-width: 700px) {
   .site {
     grid-template-columns: 30vw auto;
-    grid-template-areas: "header header" "sidebar main" "footer footer";
+    grid-template-areas: "header header"
+ "sidebar main"
+ "footer footer";
   }
 }
 

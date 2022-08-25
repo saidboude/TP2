@@ -20,6 +20,7 @@ function mon_31w_setup() {
     register_nav_menus( array(
         'sidebar_menu' => __( 'Sidebar Menu', 'mon_31w' ),
         'footer_menu'  => __( 'Footer Menu', 'mon_31w' ),
+        'footer_accueil'  => __( 'Menu Accueil', 'mon_31w' ),
     ) );
 
 } 
@@ -34,3 +35,26 @@ function mon_31w_enqueue() {
 }
 add_action( 'wp_enqueue_scripts', 'mon_31w_enqueue' );
 
+/**
+ * Premet de modifier
+ * @param : $query représente l'obgect WP_Query contenant la requête principale
+ */
+
+function mon_31w_pre_get_post_accueil( $query ) {
+    if ( $query->is_home() 
+    && $query->is_main_query() 
+    && ! is_admin() ) {
+        $query->set( 'category_name', 'accueil' );
+    }
+}
+add_action( 'pre_get_posts', 'mon_31w_pre_get_post_accueil' );
+
+function prefix_nav_description( $item_output, $item) {
+    if ( !empty( $item->description ) ) {
+        $item_output = str_replace( '</a>',
+        '<hr><span class="menu-item-description">' . $item->description . '</span><div class="menu-item-icone"></div></a>',
+              $item_output );
+    }
+    return $item_output;
+}
+add_filter( 'walker_nav_menu_start_el', 'prefix_nav_description', 10, 2 );

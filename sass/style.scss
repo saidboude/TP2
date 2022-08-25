@@ -1,5 +1,5 @@
 /*! 
-Theme Name: 31W-exercice-1 
+Theme Name: TP2
 Author: said boudehane
 Author URI: http://github.com/saidboude
 Description: Thème de base pour le cours de 31W
@@ -69,6 +69,8 @@ Text Domain: 31-w
 # composante
 --------------------------------------------------------------*/
 @import "composante/nav_sidebar"; // navigation sidebar
+@import "composante/nav_accueil"; //navigation accueil
+@import "composante/blocs__horizontaux"; // navigation sidebar
 
 /*--------------------------------------------------------------
 # Layout
