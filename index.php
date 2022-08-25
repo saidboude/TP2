@@ -1,5 +1,5 @@
 <?php get_header(); ?> 
-<h1>Mon modèle Wordpress</h1>
+<h1>Modèle Wordpress</h1>
 <?php
 if (have_posts()):
     while(have_posts()) : the_post(); ?>
